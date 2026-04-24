@@ -1,0 +1,10 @@
+.boton-personalizado {
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+}
+
+.boton-personalizado:hover {
+  transform: scale(1.05);
+}
