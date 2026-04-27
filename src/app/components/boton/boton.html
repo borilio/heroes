@@ -1,8 +1,0 @@
-<button
-  class="btn boton-personalizado"
-  [class.btn-primary]="!cargando"
-  [class.btn-warning]="cargando"
-  (click)="hacerClick()"
->
-  {{ cargando ? '⌛Cargando...' : '🔍Ver más' }}
-</button>
