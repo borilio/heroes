@@ -1,59 +1,88 @@
-# Heroes
+# 🦸‍♂️ Superhéroes App - Proyecto Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+Este proyecto será la base que utilizaremos durante el curso para aprender Angular paso a paso.
 
-## Development server
+Trabajaremos sobre esta aplicación para construir un CRUD completo de superhéroes, añadiendo funcionalidades de forma progresiva.
 
-To start a local development server, run:
+---
+
+## 🚀 Ejecutar en el navegador (sin instalar nada)
+
+Puedes abrir el proyecto directamente en tu navegador usando StackBlitz:
+
+👉 https://stackblitz.com/github/borilio/heroes
+
+Desde ahí podrás:
+
+* Ver la aplicación funcionando
+* Explorar el código
+* Modificarlo en tiempo real (sin riesgo de romper nada)
+
+---
+
+## 🧪 Cómo usar StackBlitz
+
+1. Abre el enlace anterior
+2. Espera a que cargue el proyecto
+3. Pulsa en **"Fork"** o **"Edit"** para crear tu propia copia
+4. Empieza a trabajar sobre tu versión
+
+---
+
+## 📦 Estructura del proyecto
+
+El proyecto está organizado en varias partes:
+
+* **components** → componentes reutilizables (más adelante)
+  * **layout** → cabecera, navegación y pie de página
+  * **pages** → distintas pantallas de la aplicación
+
+* **services** → lógica de acceso a datos (más adelante)
+* **models** → estructura de datos (más adelante)
+* **guards** → seguridad de las rutas (más adelante)
+
+---
+
+## 🧠 Objetivo del proyecto
+
+A lo largo del curso aprenderemos a:
+
+1. Crear y organizar componentes
+2. Navegar entre páginas (routing)
+3. Gestionar datos con modelos
+4. Centralizar lógica con servicios
+5. Conectar con un backend mediante HTTP
+
+---
+
+## ⚠️ Importante
+
+Este proyecto es una **base inicial**:
+
+* Algunas partes están preparadas pero no implementadas
+* Iremos completando la aplicación en cada tema
+* No es necesario entender todo desde el primer momento
+
+---
+
+## 🛠️ Uso en local (opcional)
+
+Si quieres trabajar en tu equipo:
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Y abre en el navegador:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📚 Recomendación
 
-## Building
+Trabaja siempre sobre tu copia (Fork en StackBlitz o clon en local) para no perder cambios y poder experimentar sin miedo.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
