@@ -12,14 +12,14 @@ Puedes abrir el proyecto directamente en tu navegador usando StackBlitz, o desca
 
 ### 📋 Versiones disponibles
 
-| Versión | Enlace a Stackblitz | Descargar de GitHub | Descripción |
-|---------|--------|-------------|-------------|
-| v1-base | https://stackblitz.com/github/borilio/heroes/tree/v1-base | https://github.com/borilio/heroes/archive/refs/tags/v1-base.zip | Versión base inicial del proyecto |
-| v2-routing | https://stackblitz.com/github/borilio/heroes/tree/v2-routing | https://github.com/borilio/heroes/archive/refs/tags/v2-routing.zip | Versión con el routing terminado |
-| v3-modelos | https://stackblitz.com/github/borilio/heroes/tree/v3-modelos | https://github.com/borilio/heroes/archive/refs/tags/v3-modelos.zip | Versión con los modelos añadidos |
-| v4-servicios | https://stackblitz.com/github/borilio/heroes/tree/v4-modelos | https://github.com/borilio/heroes/archive/refs/tags/v4-servicios.zip | Versión con los servicios añadidos |
-| v5-http | https://stackblitz.com/github/borilio/heroes/tree/v5-http | https://github.com/borilio/heroes/archive/refs/tags/v5-http.zip | Versión que usa peticiones http |
-| próximamente | ... |  | ... |
+| Versión | Descripción | Enlace a Stackblitz | Descargar de GitHub |
+|---------|-------------|--------------------|---------------------|
+| v1-base | Versión base inicial del proyecto | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v1-base) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v1-base.zip) |
+| v2-routing | Versión con el routing terminado | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v2-routing) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v2-routing.zip) |
+| v3-modelos | Versión con los modelos añadidos | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v3-modelos) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v3-modelos.zip) |
+| v4-servicios | Versión con los servicios añadidos | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v4-modelos) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v4-servicios.zip) |
+| v5-http | Versión que usa peticiones http | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v5-http) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v5-http.zip) |
+| v6-crud | Versión que tiene ya el CRUD funcional con todo | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v6-crud) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v6-crud.zip) |
 
 > [!warning]
 >
@@ -27,7 +27,7 @@ Puedes abrir el proyecto directamente en tu navegador usando StackBlitz, o desca
 
 > [!tip]
 >
-> Cómo crear una nueva versión
+> Cómo crear una nueva etiqueta para cada versión
 >
 > ```bash
 > # Una vez terminado el commit, creamos el tag que apuntará al último commit
@@ -36,6 +36,19 @@ Puedes abrir el proyecto directamente en tu navegador usando StackBlitz, o desca
 > 
 > # Subir tag a remoto
 > git push origin v2-routing
+> ```
+
+> [!tip]
+>
+> Como actualizar una etiqueta para que apunte al último commit (hemos guardado una etiqueta, y posteriormente arreglado algo con un commit):
+>
+> ```bash
+> # Hacemos el commit que arregle lo que sea
+> # Actualizamos la etiqueta al último commit
+> git tag -f v2-routing HEAD
+> 
+> # Volvemos a subir el tag a remoto
+> git push origin v2-routing -f
 > ```
 
 ---
