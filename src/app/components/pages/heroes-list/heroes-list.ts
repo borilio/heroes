@@ -12,6 +12,6 @@ export class HeroesList {
   public heroes: Hero[];
 
   constructor(private heroService: HeroService) {
-    this.heroes = heroService.getHeroes();
+    this.heroes = this.heroService.getHeroes();
   }
 }
