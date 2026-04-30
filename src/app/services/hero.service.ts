@@ -6,11 +6,7 @@ import { Hero } from '../models/heroe.model';
 })
 export class HeroService {
   // Atributos
-  private heroes: Hero[];
-
-  // Constructor
-  constructor() {
-    this.heroes = [
+  private heroes: Hero[] = [
       {
         id: 1,
         name: 'Spiderman',
@@ -314,8 +310,7 @@ export class HeroService {
         imageUrl: 'img/avatars/defaultheroe.svg',
         universe: 'DC'
       }
-    ];
-  }
+  ];
 
   // Métodos disponibles del servicio
 
