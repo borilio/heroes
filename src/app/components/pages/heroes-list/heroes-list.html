@@ -1,5 +1,15 @@
 <!-- heroes-list.html -->
 
+<div class="alert alert-info alert-dismissible">
+  <p>Estamos haciendo una petición GET a http://localhost:3000</p>
+  <ul>
+    <li>Si estás en local, y tienes json-server arrancado, funcionará.</li>
+    <li>Si estás en stackblitz, deberás cambiar la ruta en el servicio para que funcione remoto (allí encontrarás la ruta a my-json-server😉)</li>
+  </ul>
+  
+</div>
+
+
 @for (hero of heroes; track hero.id) {
 
 <div class="card mb-3 shadow-sm" style="max-width: 500px;">

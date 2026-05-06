@@ -11,10 +11,26 @@ import { HeroService } from '../../../services/hero.service';
 export class HeroesList implements OnInit {
   public heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) {}
-  
-  ngOnInit(): void {
-    this.heroes = this.heroService.getHeroes();
+  constructor(private heroService: HeroService) {
+    console.log("👷Heroes-List | constructor iniciado");
   }
 
+  ngOnInit(): void {
+    console.log('🟢 Heroes-List | ngOnInit iniciado');
+    console.log('📡 Llamamos al servicio y hacemos subscribe...');
+    console.log('⏳ Quedamos a la espera de la respuesta...');
+
+    this.heroService.getHeroes().subscribe((datos: Hero[]) => {
+      console.log('📥 Respuesta recibida del servidor');
+      console.log('📦 Datos recibidos (datos):', datos);
+
+      this.heroes = datos;
+
+      console.log('💾 Datos guardados en this.heroes');
+      console.log('🦸 Lista final de héroes:', this.heroes);
+      console.log('✅ Proceso completado');
+    });
+
+    console.log('🔴 Heroes-List | ngOnInit terminado');
+  }
 }
