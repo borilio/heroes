@@ -72,7 +72,25 @@ export class HeroesList implements OnInit {
 
     //  2. Enviamos por PATCH el trozo del objeto que queremos modificar parcialmente
     this.heroService.patchHero(hero.id!, nuevosValores).subscribe(()=>{
-      console.log("✅ Atributos modificados", nuevosValores);
+      console.log("🩹 Atributos modificados correctamente:", nuevosValores);
+      this.loadHeroes();
+    });
+
+  }
+
+  updateHero(hero: Hero): void {
+    
+    // 1. Mismo objeto, pero le cambiamos algunas propiedades
+    const heroeActualizado: Hero = {
+      ...hero,
+      name: hero.name + " ⚡",
+      power: hero.power + 30, 
+      universe: hero.universe + " Ultimate"
+    };
+
+    // 2. Hacemos la petición PUT para sobrescribir el MISMO recurso con estos nuevos valores
+    this.heroService.updateHero(heroeActualizado).subscribe(()=>{
+      console.log("✏️ Héroe actualizado correctamente: ", hero);
       this.loadHeroes();
     });
 

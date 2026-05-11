@@ -36,4 +36,8 @@ export class HeroService {
     return this.http.patch(`${this.apiURL}/heroes/${id}`, cambios);
   }
 
+  public updateHero(hero: Hero) {
+    return this.http.put(`${this.apiURL}/heroes/${hero.id!}`, hero);
+  }
+
 }
