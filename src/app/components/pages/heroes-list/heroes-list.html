@@ -12,7 +12,7 @@
 
 <div class="d-flex justify-content-end mb-3">
 
-  <button class="btn btn-success">
+  <button class="btn btn-success" (click)="this.createHero()">
     <i class="bi bi-plus-circle"></i> Nuevo héroe
   </button>
 
@@ -68,7 +68,7 @@
 
       <button 
         class="btn btn-outline-danger"
-        (click)="this.deleteHero(hero.id)"
+        (click)="this.deleteHero(hero.id!)"
       >
         <i class="bi bi-trash"></i> Eliminar
       </button>

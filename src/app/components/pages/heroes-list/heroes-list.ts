@@ -42,4 +42,26 @@ export class HeroesList implements OnInit {
       this.loadHeroes();
     });
   }
+
+  createHero(): void {
+    // 1. Creamos el recurso que vamos a enviar al backend para guardar...
+    const milis = Date.now(); // Es la fecha actual en milis, para usarla como identificador
+    const powerAleatorio = Math.floor(Math.random() * 100);
+    const nuevoHeroe: Hero = {
+      name: `Héroe nº ${milis}`,
+      alterEgo: `Nombre de ${milis}`,
+      active: true,
+      power: powerAleatorio,
+      universe: 'Multiverso',
+      imageUrl: ''
+    };
+
+    console.log("Queremos guardar a ", nuevoHeroe);
+
+    // 2. Lo mandamos al backend por post
+    this.heroService.createHero(nuevoHeroe).subscribe(() => {
+      console.log('✅ Héroe creado correctamente', nuevoHeroe);
+      this.loadHeroes();
+    });
+  }
 }

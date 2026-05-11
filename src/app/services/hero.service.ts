@@ -28,4 +28,8 @@ export class HeroService {
     return this.http.delete(`${this.apiURL}/heroes/${id}`);
   }
 
+  public createHero(hero : Hero) {
+    return this.http.post(`${this.apiURL}/heroes`, hero);
+  }
+
 }
