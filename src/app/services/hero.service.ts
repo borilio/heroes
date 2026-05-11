@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from '../models/heroe.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,23 +12,20 @@ export class HeroService {
   // public apiURL = "https://my-json-server.typicode.com/borilio/heroes-backend"; // Remoto con my-json-server
 
   // Constructor
-  constructor(private http: HttpClient){
-  }
+  constructor(private http: HttpClient){}
 
   // Métodos disponibles del servicio
 
-  /**
-   * Método que retorna la lista completa de Heroes
-   */
-  public getHeroes() {
+  public getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this.apiURL}/heroes`);
   }
   
-  /**
-   * Método que retorna un Hero según la id, o bien undefined si no existe.
-   */
-  public getHeroById(id: number) {
+  public getHeroById(id: number): Observable<Hero> {
     return this.http.get<Hero>(`${this.apiURL}/heroes/${id}`);
+  }
+
+  public deleteHero(id: number)  {
+    return this.http.delete(`${this.apiURL}/heroes/${id}`);
   }
 
 }

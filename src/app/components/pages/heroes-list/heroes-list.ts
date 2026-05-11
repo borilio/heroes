@@ -12,11 +12,16 @@ export class HeroesList implements OnInit {
   public heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) {
-    console.log("👷Heroes-List | constructor iniciado");
+    console.log('👷Heroes-List | constructor iniciado');
   }
 
   ngOnInit(): void {
     console.log('🟢 Heroes-List | ngOnInit iniciado');
+    this.loadHeroes();
+    console.log('🔴 Heroes-List | ngOnInit terminado');
+  }
+
+  loadHeroes(): void {
     console.log('📡 Llamamos al servicio y hacemos subscribe...');
     console.log('⏳ Quedamos a la espera de la respuesta...');
 
@@ -27,10 +32,14 @@ export class HeroesList implements OnInit {
       this.heroes = datos;
 
       console.log('💾 Datos guardados en this.heroes');
-      console.log('🦸 Lista final de héroes:', this.heroes);
       console.log('✅ Proceso completado');
     });
+  }
 
-    console.log('🔴 Heroes-List | ngOnInit terminado');
+  deleteHero(id: number): void {
+    this.heroService.deleteHero(id).subscribe(() => {
+      console.log('✅ Héroe eliminado correctamente');
+      this.loadHeroes();
+    });
   }
 }
