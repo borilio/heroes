@@ -56,12 +56,25 @@ export class HeroesList implements OnInit {
       imageUrl: ''
     };
 
-    console.log("Queremos guardar a ", nuevoHeroe);
-
     // 2. Lo mandamos al backend por post
     this.heroService.createHero(nuevoHeroe).subscribe(() => {
       console.log('✅ Héroe creado correctamente', nuevoHeroe);
       this.loadHeroes();
     });
+  }
+
+  toggleActive(hero: Hero): void {
+    
+    // 1. Creamos el trozo de objeto solo con los atributos que vamos a parchear
+    const nuevosValores: Partial<Hero> = {
+      active: !hero.active
+    };
+
+    //  2. Enviamos por PATCH el trozo del objeto que queremos modificar parcialmente
+    this.heroService.patchHero(hero.id!, nuevosValores).subscribe(()=>{
+      console.log("✅ Atributos modificados", nuevosValores);
+      this.loadHeroes();
+    });
+
   }
 }

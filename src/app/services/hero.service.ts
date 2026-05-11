@@ -31,5 +31,9 @@ export class HeroService {
   public createHero(hero : Hero) {
     return this.http.post(`${this.apiURL}/heroes`, hero);
   }
+  
+  public patchHero(id: number, cambios: Partial<Hero>) {
+    return this.http.patch(`${this.apiURL}/heroes/${id}`, cambios);
+  }
 
 }
