@@ -1,0 +1,23 @@
+.progress {
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-indeterminate {
+  position: absolute;
+  height: 100%;
+  width: 35%;
+  right: -35%;
+  animation: cargando 1.2s infinite;
+  background-color: #0d6efd; /* bootstrap primary */
+  border-radius: 999px;
+}
+
+@keyframes cargando {
+  0% {
+    right: -35%;
+  }
+  100% {
+    right: 100%;
+  }
+}

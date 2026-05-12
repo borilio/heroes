@@ -1,24 +1,35 @@
 <!-- heroes-list.html -->
 
+<!-- Aviso de URL del backend -->
 <div class="alert alert-info alert-dismissible fade show" role="alert">
   <p>Estamos haciendo una petición GET a http://localhost:3000</p>
   <ul>
     <li>Si estás en local, y tienes json-server arrancado, funcionará.</li>
-    <li>Si estás en stackblitz, deberás cambiar la ruta en el servicio para que funcione remoto (allí encontrarás la
+    <li>Si estás en Stackblitz, deberás cambiar la ruta en el servicio para que funcione remoto (allí encontrarás la
       ruta a my-json-server😉)</li>
   </ul>
   <button class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-
 </div>
 
+<!-- Botón de Nuevo héroe -->
 <div class="d-flex justify-content-end mb-3">
 
   <button class="btn btn-success" (click)="this.createHero()">
-    <i class="bi bi-plus-circle"></i> Nuevo héroe
+    @if (cargandoNuevo) {
+      <i class="spinner-border spinner-border-sm"></i> Nuevo héroe
+    } @else{
+      <i class="bi bi-plus-circle"></i> Nuevo héroe
+    }
   </button>
 
 </div>
 
+@if (cargandoHeroes) {
+  <!-- Progress bar personalizado -->
+  <div class="progress my-5" role="progressbar" style="height:6px;">
+    <div class="progress-indeterminate"></div>
+  </div> 
+}
 
 @for (hero of heroes; track hero.id) {
 
@@ -60,15 +71,27 @@
     <div class="btn-group w-100" role="group">
 
       <button class="btn btn-outline-primary" (click)="updateHero(hero)">
-        <i class="bi bi-pencil"></i> Editar
+        @if (cargandoEditar && cargandoId === hero.id) {
+          <i class="spinner-border spinner-border-sm"></i> Editar
+        } @else {
+          <i class="bi bi-pencil"></i> Editar
+        }
       </button>
 
       <button class="btn btn-outline-warning" (click)="toggleActive(hero)">
-        <i class="bi bi-arrow-repeat"></i> Estado
+        @if (cargandoToggle && cargandoId === hero.id) {
+          <i class="spinner-border spinner-border-sm"></i> Estado
+        } @else {
+          <i class="bi bi-arrow-repeat"></i> Estado
+        }
       </button>
 
       <button class="btn btn-outline-danger" (click)="this.deleteHero(hero.id!)">
-        <i class="bi bi-trash"></i> Eliminar
+        @if (cargandoEliminar && cargandoId === hero.id) {
+          <i class="spinner-border spinner-border-sm"></i> Eliminar
+        } @else {
+          <i class="bi bi-trash"></i> Eliminar
+        }
       </button>
 
     </div>

@@ -18,7 +18,9 @@ Puedes abrir el proyecto directamente en tu navegador usando StackBlitz, o desca
 | v2-routing | Versión con el routing terminado | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v2-routing) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v2-routing.zip) |
 | v3-modelos | Versión con los modelos añadidos | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v3-modelos) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v3-modelos.zip) |
 | v4-servicios | Versión con los servicios añadidos | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v4-modelos) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v4-servicios.zip) |
-| v5-http | Versión que usa peticiones http | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v5-http) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v5-http.zip) |
+| v5-http | Versión que usa peticiones http de tipo GET | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v5-http) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v5-http.zip) |
+| v5-http-full | Versión que usa peticiones http GET, POST, DELETE, PUT y PATCH | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v5-http-full) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v5-http-full.zip) |
+| v5-http-full-spinners | Versión que usa peticiones http GET, POST, DELETE, PUT y PATCH y spinners para los tiempos de carga | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v5-http-full-spinners) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v5-http-full-spinners.zip) |
 | v6-crud | Versión que tiene ya el CRUD funcional con todo | [Ver en Stackblitz](https://stackblitz.com/github/borilio/heroes/tree/v6-crud) | [Descargar en GitHub](https://github.com/borilio/heroes/archive/refs/tags/v6-crud.zip) |
 
 > [!warning]

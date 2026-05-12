@@ -10,6 +10,14 @@ import { HeroService } from '../../../services/hero.service';
 })
 export class HeroesList implements OnInit {
   public heroes: Hero[] = [];
+  
+  // Para controlar los tiempos de carga en las peticiones
+  public cargandoHeroes: boolean = false;
+  public cargandoId: number = 0; // Guardamos la ID del héroe para solo mostrar el spinner en ESE elemento, no en todos.
+  public cargandoEliminar: boolean = false;
+  public cargandoNuevo: boolean = false;
+  public cargandoToggle: boolean = false;
+  public cargandoEditar: boolean = false;
 
   constructor(private heroService: HeroService) {
     console.log('👷Heroes-List | constructor iniciado');
@@ -24,12 +32,14 @@ export class HeroesList implements OnInit {
   loadHeroes(): void {
     console.log('📡 Llamamos al servicio y hacemos subscribe...');
     console.log('⏳ Quedamos a la espera de la respuesta...');
+    this.cargandoHeroes = true;
 
     this.heroService.getHeroes().subscribe((datos: Hero[]) => {
       console.log('📥 Respuesta recibida del servidor');
       console.log('📦 Datos recibidos (datos):', datos);
 
       this.heroes = datos;
+      this.cargandoHeroes = false;
 
       console.log('💾 Datos guardados en this.heroes');
       console.log('✅ Proceso completado');
@@ -37,8 +47,12 @@ export class HeroesList implements OnInit {
   }
 
   deleteHero(id: number): void {
+    this.cargandoEliminar = true;
+    this.cargandoId = id;
     this.heroService.deleteHero(id).subscribe(() => {
       console.log('✅ Héroe eliminado correctamente');
+      this.cargandoEliminar = false;
+      this.cargandoId = 0;
       this.loadHeroes();
     });
   }
@@ -57,8 +71,10 @@ export class HeroesList implements OnInit {
     };
 
     // 2. Lo mandamos al backend por post
+    this.cargandoNuevo = true;
     this.heroService.createHero(nuevoHeroe).subscribe(() => {
       console.log('✅ Héroe creado correctamente', nuevoHeroe);
+      this.cargandoNuevo = false;
       this.loadHeroes();
     });
   }
@@ -69,11 +85,15 @@ export class HeroesList implements OnInit {
     const nuevosValores: Partial<Hero> = {
       active: !hero.active
     };
+    this.cargandoToggle = true;
+    this.cargandoId = hero.id!;
 
     //  2. Enviamos por PATCH el trozo del objeto que queremos modificar parcialmente
     this.heroService.patchHero(hero.id!, nuevosValores).subscribe(()=>{
       console.log("🩹 Atributos modificados correctamente:", nuevosValores);
       this.loadHeroes();
+      this.cargandoToggle = false;
+      this.cargandoId = 0;
     });
 
   }
@@ -87,10 +107,14 @@ export class HeroesList implements OnInit {
       power: hero.power + 30, 
       universe: hero.universe + " Ultimate"
     };
+    this.cargandoEditar = true;
+    this.cargandoId = hero.id!;
 
     // 2. Hacemos la petición PUT para sobrescribir el MISMO recurso con estos nuevos valores
     this.heroService.updateHero(heroeActualizado).subscribe(()=>{
       console.log("✏️ Héroe actualizado correctamente: ", hero);
+      this.cargandoEditar = false;
+      this.cargandoId = 0;
       this.loadHeroes();
     });
 
